@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Pinterest Image Downloader",
+  "version": "1.0",
+  "description": "Download images from Pinterest with a single click",
+  "permissions": [
+    "activeTab",
+    "downloads",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://*.pinterest.com/*",
+    "https://*.pinimg.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://*.pinterest.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Pinterest Image Downloader"
+  }
+}
